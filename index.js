@@ -130,6 +130,7 @@ function revisarCarrito() {
     alert (carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
     menu()
 }
+usuario()
 menu()
 
 
