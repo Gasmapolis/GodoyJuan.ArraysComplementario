@@ -59,50 +59,24 @@ function menu() {
 function agregarProducto() {
     do {
         agregarProducto = parseInt(prompt("Seleccione el producto que desea agregar al carrito.\n su total hasta ahora es $" + totalProductos + ".\n 1.Pulsera\n 2.Mochila\n 3.Reloj digital\n 4.Reloj Analogico\n 5.Gorras\n 0.Volver al menu anterior."));
-        switch (agregarProducto) {
-            case 1:
-                totalProductos = suma(totalProductos, pulsera.precio)
-                carrito.push(pulsera.nombre)
-                break
-            case 2:
-                totalProductos = suma(totalProductos, mochila.precio)
-                carrito.push(mochila.nombre)
-                break
-            case 3:
-                totalProductos = suma(totalProductos, relojDigital.precio)
-                carrito.push(relojDigital.nombre)
-                break
-            case 4:
-                totalProductos = suma(totalProductos, relojAnalogico.precio)
-                carrito.push(relojAnalogico.nombre)
-                break
-            case 5:
-                totalProductos = suma(totalProductos, gorras.precio)
-                carrito.push(gorras.nombre)
-                break
-            case 0:
-                break
-            default:
-                alert("Seleccione por favor una opcion valida")
+        if (agregarProducto === 1) {
+            totalProductos = suma(totalProductos, pulsera.precio)
+            carrito.push(pulsera.nombre)
+        }if (agregarProducto === 2) {
+            totalProductos = suma(totalProductos, mochila.precio)
+            carrito.push(mochila.nombre)
+        }if (agregarProducto === 3) {
+            totalProductos = suma(totalProductos, relojDigital.precio)
+            carrito.push(relojDigital.nombre)
+        }if (agregarProducto === 4) {
+            totalProductos = suma(totalProductos, relojAnalogico.precio)
+            carrito.push(relojAnalogico.nombre)
+        }if (agregarProducto === 5) {
+            totalProductos = suma(totalProductos, gorras.precio)
+            carrito.push(gorras.nombre)
+        }if (agregarProducto >= 6) {
+            alert("Seleccione por favor una opcion valida")
         }
-        // if (agregarProducto === 1) {
-        //     totalProductos = suma(totalProductos, pulsera.precio)
-        //     carrito.push(pulsera.nombre)
-        // }if (agregarProducto === 2) {
-        //     totalProductos = suma(totalProductos, mochila.precio)
-        //     carrito.push(mochila.nombre)
-        // }if (agregarProducto === 3) {
-        //     totalProductos = suma(totalProductos, relojDigital.precio)
-        //     carrito.push(relojDigital.nombre)
-        // }if (agregarProducto === 4) {
-        //     totalProductos = suma(totalProductos, relojAnalogico.precio)
-        //     carrito.push(relojAnalogico.nombre)
-        // }if (agregarProducto === 5) {
-        //     totalProductos = suma(totalProductos, gorras.precio)
-        //     carrito.push(gorras.nombre)
-        // }if (agregarProducto >= 6) {
-        //     alert("Seleccione por favor una opcion valida")
-        // }
 
     }while (agregarProducto !== 0)
         if (agregarProducto === 0) {
