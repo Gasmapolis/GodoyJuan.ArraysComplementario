@@ -1,4 +1,3 @@
-let nombreUsuario = prompt("Ingrese su nombre por favor")
 
 class Producto {
     constructor (nombre, precio){
@@ -6,13 +5,14 @@ class Producto {
         this.precio = parseInt (precio);
     }
 }
-
+let nombreUsuario
+let totalProductos = 0
 const pulsera = new Producto("Pulsera $450", 450);
 const mochila = new Producto("Mochila $2200", 2200);
 const relojDigital = new Producto("Reloj Digital $3100", 3100);
 const relojAnalogico = new Producto("Reloj Analogico $2000", 2000);
 const gorras = new Producto("Gorras $800", 800);
-let totalProductos = 0
+
 
 let carrito = [];
 
@@ -29,6 +29,10 @@ function resta(numeroUno, numeroDos) {
 function multiplicacion(numeroUno, numeroDos) {
     let resultado = numeroUno * numeroDos;
     return resultado;
+}
+
+function usuario(){
+    nombreUsuario = prompt("Ingrese su nombre por favor")
 }
 
 function menu() {
