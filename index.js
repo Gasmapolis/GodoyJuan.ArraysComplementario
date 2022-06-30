@@ -83,9 +83,6 @@ function agregarProducto() {
         }
 
     }while (agregarProducto !== 0)
-        if (agregarProducto === 0) {
-            menu()
-        }
 }
 
 function mostrarTotal(resultado) {
@@ -103,18 +100,17 @@ function metodoPago() {
         if (metodoPago === 1) {
             alert("Se ha aplicado un descuento del 10%");
             totalProductos = efectivo;
-            // return totalProductos
-            mostrarTotal(totalProductos)    
+            mostrarTotal(totalProductos)   
+            
         }if (metodoPago === 2) {
             totalProductos = transferencia;
-            // return totalProductos;
             mostrarTotal(totalProductos)
     
         }if (metodoPago === 3) {
             alert("Se ha aplicado un recargo del 15%");
             totalProductos = credito;
-            // return totalProductos
             mostrarTotal(totalProductos)
+            
         }if (metodoPago >= 4) {
             alert("Seleccione una opcion valida")
             
