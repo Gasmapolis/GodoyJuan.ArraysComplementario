@@ -1,4 +1,3 @@
-let nombreUsuario = prompt("Ingrese su nombre por favor")
 
 class Producto {
     constructor (nombre, precio){
@@ -29,6 +28,10 @@ function resta(numeroUno, numeroDos) {
 function multiplicacion(numeroUno, numeroDos) {
     let resultado = numeroUno * numeroDos;
     return resultado;
+}
+
+function usuario(){
+    nombreUsuario = prompt("Ingrese su nombre por favor")
 }
 
 function menu() {
@@ -122,6 +125,5 @@ function revisarCarrito() {
 
     alert (carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
 }
-
 
 
