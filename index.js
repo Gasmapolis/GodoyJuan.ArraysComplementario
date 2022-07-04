@@ -11,7 +11,7 @@ const pulsera = new Producto("Pulsera", 450);
 const mochila = new Producto("Mochila", 2200);
 const relojDigital = new Producto("Reloj Digital", 3100);
 const relojAnalogico = new Producto("Reloj Analogico $2000", 2000);
-const gorras = new Producto("Gorras $800", 800);
+const gorras = new Producto("Gorras", 800);
 let totalProductos = 0
 
 let carrito = [];
