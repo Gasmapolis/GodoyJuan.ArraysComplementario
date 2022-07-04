@@ -57,7 +57,7 @@ function menu() {
         } 
     } while (opcion !== "") 
 }
-menu()
+
 function agregarProducto() {
     let seleccionarProducto = 0
     do {
@@ -125,4 +125,5 @@ function revisarCarrito() {
     alert (carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
 }
 
-
+usuario()
+menu()
