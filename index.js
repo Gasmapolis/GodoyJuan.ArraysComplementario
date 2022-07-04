@@ -61,7 +61,7 @@ function menu() {
 function agregarProducto() {
     let seleccionarProducto = 0
     do {
-        seleccionarProducto = parseInt(prompt("Seleccione el producto que desea agregar al carrito.\n su total hasta ahora es $" + totalProductos + ".\n 1.Pulsera\n 2.Mochila\n 3.Reloj digital\n 4.Reloj Analogico\n 5.Gorras\n 0.Volver al menu anterior."));
+        seleccionarProducto = parseInt(prompt("Seleccione el producto que desea agregar al carrito.\n su total hasta ahora es $" + totalProductos + "\n Actualmente hay " + carrito.length + " productos en el carrito.\n 1.Pulsera $450\n 2.Mochila $2200\n 3.Reloj digital $3100\n 4.Reloj Analogico $2000\n 5.Gorras $800\n 0.Volver al menu anterior." ));
 
         if (seleccionarProducto === 1) {
             totalProductos = suma(totalProductos, pulsera.precio)
@@ -122,7 +122,7 @@ function reinicioCarrito() {
 
 function revisarCarrito() {
 
-    alert (carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
+    alert ("Los productos en su carrito son:\n" + carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
 }
 
 usuario()
