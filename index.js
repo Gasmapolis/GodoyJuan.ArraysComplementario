@@ -9,7 +9,7 @@ class Producto {
 const pulsera = new Producto("Pulsera", 450);
 const mochila = new Producto("Mochila", 2200);
 const relojDigital = new Producto("Reloj Digital", 3100);
-const relojAnalogico = new Producto("Reloj Analogico $2000", 2000);
+const relojAnalogico = new Producto("Reloj Analogico", 2000);
 const gorras = new Producto("Gorras", 800);
 let totalProductos = 0
 
@@ -36,7 +36,6 @@ function usuario(){
 
 function menu() {
     let opcion = 0;
-    
     opcion = parseInt(prompt("Bienvenido " + nombreUsuario + ", seleccione una opcion para continuar. (ESC para salir)\nEn el carrito hay actualmente " + carrito.length + " Productos.\n 1.Agregar productos al carrito\n 2.Pagar el total de la compra\n 3.Reiniciar carrito\n 4.Mostrar productos dentro del carrito"));
     do{
     switch (opcion) {
