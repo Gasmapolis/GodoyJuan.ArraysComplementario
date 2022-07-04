@@ -7,9 +7,9 @@ class Producto {
     }
 }
 
-const pulsera = new Producto("Pulsera $450", 450);
-const mochila = new Producto("Mochila $2200", 2200);
-const relojDigital = new Producto("Reloj Digital $3100", 3100);
+const pulsera = new Producto("Pulsera", 450);
+const mochila = new Producto("Mochila", 2200);
+const relojDigital = new Producto("Reloj Digital", 3100);
 const relojAnalogico = new Producto("Reloj Analogico $2000", 2000);
 const gorras = new Producto("Gorras $800", 800);
 let totalProductos = 0
@@ -33,55 +33,55 @@ function multiplicacion(numeroUno, numeroDos) {
 
 function menu() {
     let opcion = 0;
-    do{
-    opcion = parseInt(prompt("Bienvenido " + nombreUsuario + ", seleccione una opcion para continuar. (ESC para salir)\nEn el carrito hay actualmente " + carrito.length + " Productos.\n 1.Agregar productos al carrito\n 2.Pagar el total de la compra\n 3.Reiniciar carrito\n 4.Mostrar productos dentro del carrito"));
     
-        switch (opcion) {
-            case 1:
-                agregarProducto()
-                break
-            case 2:
-                metodoPago()
-                break
-            case 3:
-                reinicioCarrito()
-                break
-            case 4:
-                revisarCarrito()
-                break
-            default: 
+    opcion = parseInt(prompt("Bienvenido " + nombreUsuario + ", seleccione una opcion para continuar. (ESC para salir)\nEn el carrito hay actualmente " + carrito.length + " Productos.\n 1.Agregar productos al carrito\n 2.Pagar el total de la compra\n 3.Reiniciar carrito\n 4.Mostrar productos dentro del carrito"));
+    do{
+    switch (opcion) {
+        case 1:
+            agregarProducto()
+            return menu()
+        case 2:
+            metodoPago()
+            return mostrarTotal(totalProductos)
+        case 3:
+            reinicioCarrito()
+            return menu()
+        case 4:
+            revisarCarrito()
+            return menu()
+        default: 
             alert("seleccione una opcion valida!!")
             
         } 
-    } while (opcion !== "ESC")
+    } while (opcion !== "") 
 }
-
+menu()
 function agregarProducto() {
+    let seleccionarProducto = 0
     do {
-        agregarProducto = parseInt(prompt("Seleccione el producto que desea agregar al carrito.\n su total hasta ahora es $" + totalProductos + ".\n 1.Pulsera\n 2.Mochila\n 3.Reloj digital\n 4.Reloj Analogico\n 5.Gorras\n 0.Volver al menu anterior."));
-        if (agregarProducto === 1) {
+        seleccionarProducto = parseInt(prompt("Seleccione el producto que desea agregar al carrito.\n su total hasta ahora es $" + totalProductos + ".\n 1.Pulsera\n 2.Mochila\n 3.Reloj digital\n 4.Reloj Analogico\n 5.Gorras\n 0.Volver al menu anterior."));
+
+        if (seleccionarProducto === 1) {
             totalProductos = suma(totalProductos, pulsera.precio)
-            carrito.push(pulsera.nombre)
-        }if (agregarProducto === 2) {
+            carrito.push ('Pulsera $450')
+        }if (seleccionarProducto === 2) {
             totalProductos = suma(totalProductos, mochila.precio)
-            carrito.push(mochila.nombre)
-        }if (agregarProducto === 3) {
+            carrito.push ('Mochila $2200')
+        }if (seleccionarProducto === 3) {
             totalProductos = suma(totalProductos, relojDigital.precio)
-            carrito.push(relojDigital.nombre)
-        }if (agregarProducto === 4) {
+            carrito.push('Reloj Digital $3100')
+        }if (seleccionarProducto === 4) {
             totalProductos = suma(totalProductos, relojAnalogico.precio)
-            carrito.push(relojAnalogico.nombre)
-        }if (agregarProducto === 5) {
+            carrito.push ('Reloj Analogico $2000')
+        }if (seleccionarProducto === 5) {
             totalProductos = suma(totalProductos, gorras.precio)
-            carrito.push(gorras.nombre)
-        }if (agregarProducto >= 6) {
+            carrito.push ('Gorras $800')
+        }if (seleccionarProducto >= 6) {
             alert("Seleccione por favor una opcion valida")
         }
 
-    }while (agregarProducto !== 0)
-        if (agregarProducto === 0) {
-            menu()
-        }
+    }while (seleccionarProducto !== 0)
+
 }
 
 function mostrarTotal(resultado) {
@@ -99,18 +99,14 @@ function metodoPago() {
         if (metodoPago === 1) {
             alert("Se ha aplicado un descuento del 10%");
             totalProductos = efectivo;
-            // return totalProductos
-            mostrarTotal(totalProductos)    
+
         }if (metodoPago === 2) {
             totalProductos = transferencia;
-            // return totalProductos;
-            mostrarTotal(totalProductos)
-    
+
         }if (metodoPago === 3) {
             alert("Se ha aplicado un recargo del 15%");
             totalProductos = credito;
-            // return totalProductos
-            mostrarTotal(totalProductos)
+
         }if (metodoPago >= 4) {
             alert("Seleccione una opcion valida")
             
@@ -120,12 +116,12 @@ function reinicioCarrito() {
     alert("Se han eliminado todos los productos del carrito")
     totalProductos = multiplicacion(totalProductos, 0);
     carrito = []
-    menu()
 }
+
 function revisarCarrito() {
+
     alert (carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
-    menu()
 }
-menu()
+
 
 
