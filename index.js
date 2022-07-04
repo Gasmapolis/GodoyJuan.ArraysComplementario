@@ -3,6 +3,7 @@ class Producto {
     constructor (nombre, precio){
         this.nombre = nombre;
         this.precio = parseInt (precio);
+
     }
 }
 
@@ -32,12 +33,17 @@ function multiplicacion(numeroUno, numeroDos) {
 
 function usuario(){
     nombreUsuario = prompt("Ingrese su nombre por favor")
+    while (nombreUsuario === "") {
+        nombreUsuario = prompt("Ingrese su nombre por favor")
+    }
 }
 
 function menu() {
     let opcion = 0;
-    opcion = parseInt(prompt("Bienvenido " + nombreUsuario + ", seleccione una opcion para continuar. (ESC para salir)\nEn el carrito hay actualmente " + carrito.length + " Productos.\n 1.Agregar productos al carrito\n 2.Pagar el total de la compra\n 3.Reiniciar carrito\n 4.Mostrar productos dentro del carrito"));
+    
     do{
+        opcion = parseInt(prompt("Bienvenido " + nombreUsuario + ", seleccione una opcion para continuar. (ESC para salir)\nEn el carrito hay actualmente " + carrito.length + " Productos.\n 1.Agregar productos al carrito\n 2.Pagar el total de la compra\n 3.Reiniciar carrito\n 4.Mostrar productos dentro del carrito"));
+    
     switch (opcion) {
         case 1:
             agregarProducto()
