@@ -3,7 +3,6 @@ class Producto {
     constructor (nombre, precio){
         this.nombre = nombre;
         this.precio = parseInt (precio);
-
     }
 }
 
@@ -13,8 +12,8 @@ const relojDigital = new Producto("Reloj Digital", 3100);
 const relojAnalogico = new Producto("Reloj Analogico", 2000);
 const gorras = new Producto("Gorras", 800);
 let totalProductos = 0
-
 let carrito = [];
+let listaCompras = [];
 
 function suma(numeroUno, numeroDos) {
     let resultado = numeroUno + numeroDos;
@@ -71,19 +70,24 @@ function agregarProducto() {
 
         if (seleccionarProducto === 1) {
             totalProductos = suma(totalProductos, pulsera.precio)
-            carrito.push ('Pulsera $450')
+            listaCompras.push(pulsera)
+            carrito.push ( pulsera.nombre + ' $' + pulsera.precio )
         }if (seleccionarProducto === 2) {
             totalProductos = suma(totalProductos, mochila.precio)
-            carrito.push ('Mochila $2200')
+            listaCompras.push(mochila)
+            carrito.push (mochila.nombre + ' $' + mochila.precio)
         }if (seleccionarProducto === 3) {
             totalProductos = suma(totalProductos, relojDigital.precio)
-            carrito.push('Reloj Digital $3100')
+            listaCompras.push(relojDigital)
+            carrito.push(relojDigital.nombre + ' $' + relojDigital.precio)
         }if (seleccionarProducto === 4) {
             totalProductos = suma(totalProductos, relojAnalogico.precio)
-            carrito.push ('Reloj Analogico $2000')
+            listaCompras.push(relojAnalogico)
+            carrito.push (relojAnalogico.nombre + ' $' + relojAnalogico.precio)
         }if (seleccionarProducto === 5) {
             totalProductos = suma(totalProductos, gorras.precio)
-            carrito.push ('Gorras $800')
+            listaCompras.push(gorras)
+            carrito.push (gorras.nombre + ' $' + gorras.precio)
         }if (seleccionarProducto >= 6) {
             alert("Seleccione por favor una opcion valida")
         }
@@ -124,6 +128,7 @@ function reinicioCarrito() {
     alert("Se han eliminado todos los productos del carrito")
     totalProductos = multiplicacion(totalProductos, 0);
     carrito = []
+    listaCompras = []
 }
 
 function revisarCarrito() {
@@ -131,5 +136,15 @@ function revisarCarrito() {
     alert ("Los productos en su carrito son:\n" + carrito.join("\n") + "\n Total a pagar: $" + totalProductos)
 }
 
+function listaFiltrada() {
+    const relojes = listaCompras.filter((listaCompras) => listaCompras.nombre.includes('Reloj'))
+    const baratos = listaCompras.filter((listaCompras) => listaCompras.precio < 2000)
+    console.log("Relojes vendidos")
+    console.log(relojes)
+    console.log("productos baratos")
+    console.log(baratos)
+}
+
 usuario()
 menu()
+listaFiltrada()
